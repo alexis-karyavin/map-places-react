@@ -13,6 +13,4 @@ const MapContainer = () => {
   );
 };
 
-// new Map();
-
 export default MapContainer;
