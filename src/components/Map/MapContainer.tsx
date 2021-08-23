@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Map from '../../models/map'
+
+import data from '../../data/data';
 
 import './Map.scss'
 
 const MapContainer = () => {
+  const [ places  ] = useState(data);
   useEffect(() => {
-    new Map();
+    const map = new Map();
+    map.init();
+    map.addPlaces(places);
   })
 
   return (

@@ -2,7 +2,7 @@ import * as config from '../config.json'
 import mapboxgl, { EventData, Marker, Popup } from 'mapbox-gl'
 // import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { Features } from './interfaces'
+import { Feature } from './interfaces'
 
 export default class Map {
   // TODO: Узнать интерфейс
@@ -37,7 +37,7 @@ export default class Map {
     // this.addImageMarker('custom-marker', )
   }
 
-  public addPlaces (places: Features): void {
+  public addPlaces (places: Array<Feature>): void {
     // TODO: Разбить на более мелкие функции
     this.map.on('load', () => {
       this.map.addSource('places', {
