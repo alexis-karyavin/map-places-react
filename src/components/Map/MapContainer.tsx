@@ -24,7 +24,6 @@ const MapContainer = () => {
     <>
       <div id="map"></div>
       { showSpinner && <Spinner />}
-      {/* <Spinner /> */}
     </>
   );
 };

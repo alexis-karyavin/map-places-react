@@ -1,14 +1,20 @@
 import './MapTools.scss';
 
 import * as React from 'react';
-// import { Button } from 'react-bootstrap';
-
-// import Spinner from '../base/Spinner/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from 'react-bootstrap';
 
 const MapTools = () => {
   return (
     <div className="map-tools-container">
-      {/* <Spinner /> */}
+      <div className="map-tools-group user">
+        <Button>
+          <FontAwesomeIcon icon={["fas", "user"]} />
+        </Button>
+        <Button>
+          <FontAwesomeIcon icon={["fas", "star"]} />
+        </Button> 
+      </div>
     </div>
   );
 };
