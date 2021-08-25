@@ -3,7 +3,7 @@ export interface Feature {
   type: string;
   properties: {
     description: string;
-    icon: string;
+    title: string;
   };
   geometry: {
     type: string;

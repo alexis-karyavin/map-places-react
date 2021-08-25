@@ -17,7 +17,7 @@ const MapContainer = () => {
     map.init().then(() => {
       setShowSpinner(false);
     });
-    map.addPlaces(places);
+    map.addFavorites(places);
   })
 
   return (

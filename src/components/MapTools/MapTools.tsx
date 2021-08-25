@@ -1,14 +1,21 @@
 import './MapTools.scss';
-
-import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from 'react-bootstrap';
+// import { useState } from 'react';
 
-const MapTools = () => {
+const MapTools = (props: any) => {
+
+  // const [showUserPanel, setShowUserPanel] = useState(false);
+
+  const clickBtnUser = () => {
+    // setShowUserPanel(!showUserPanel);
+    props.onCollapseUserPanel(true);
+  }
+
   return (
     <div className="map-tools-container">
       <div className="map-tools-group user">
-        <Button>
+        <Button onClick={clickBtnUser}>
           <FontAwesomeIcon icon={["fas", "user"]} />
         </Button>
         <Button>

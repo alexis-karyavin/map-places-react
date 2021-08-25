@@ -7,7 +7,7 @@ import './Spinner.scss'
 const Spinner = () => {
   return (
     <div className="container-spinner">
-      <FontAwesomeIcon icon={["fas", "spinner"]} size="3x" />
+      <FontAwesomeIcon icon={["fas", "circle-notch"]} size="3x" />
     </div>
   )
 }

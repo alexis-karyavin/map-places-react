@@ -37,6 +37,35 @@ export default class Map {
     // this.addImageMarker('custom-marker', )
   }
 
+  public addFavorites(places: Array<Feature>): void {
+    this.map.on('load', () => {
+      this.createSymbol('/images/star.png', 'favorites', places);
+
+      this.map.on('click', 'places', (e: EventData) => {
+        const coordinates = e.features[0].geometry.coordinates.slice()
+        const description = e.features[0].properties.description
+
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360
+        }
+
+        this.showPopup(coordinates[0], coordinates[1], description)
+
+        this.goTo(coordinates[0], coordinates[1])
+      })
+
+      // Change the cursor to a pointer when the mouse is over the places layer.
+      this.map.on('mouseenter', 'places', () => {
+        this.map.getCanvas().style.cursor = 'pointer'
+      })
+
+      // Change it back to a pointer when it leaves.
+      this.map.on('mouseleave', 'places', () => {
+        this.map.getCanvas().style.cursor = ''
+      })
+    });
+  }
+
   public addPlaces (places: Array<Feature>): void {
     // TODO: Разбить на более мелкие функции
     this.map.on('load', () => {
@@ -135,5 +164,41 @@ export default class Map {
     const image = new Image(50, 50)
     image.src = url
     return image
+  }
+
+  private createSymbol(url: string, name: string, features: Array<Feature>): void {
+    this.map.loadImage(
+      url,
+      (error: ErrorEvent, image: ImageData) => {
+
+        if (error) throw error;
+        this.map.addImage(name, image);
+
+        this.map.addSource('points', {
+          'type': 'geojson',
+          'data': {
+            'type': 'FeatureCollection',
+            'features': features
+          }
+        });
+
+        this.map.addLayer({
+          'id': 'places',
+          'type': 'symbol',
+          'source': 'points',
+          'layout': {
+            'icon-image': name,
+            // get the title name from the source's "title" property
+            'text-field': ['get', 'title'],
+            'text-font': [
+              'Open Sans Semibold',
+              'Arial Unicode MS Bold'
+            ],
+            'text-offset': [0, 1.25],
+            'text-anchor': 'top'
+          }
+        });
+      }
+    )
   }
 }
