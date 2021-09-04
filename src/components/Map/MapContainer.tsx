@@ -18,7 +18,7 @@ const MapContainer = () => {
       setShowSpinner(false);
     });
     map.addFavorites(places);
-  })
+  }, [places])
 
   return (
     <>
