@@ -1,7 +1,7 @@
 import './UserPanel.scss';
 
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { CloseButton } from 'react-bootstrap';
 
 const UserPanel = (props: any) => {
 
@@ -17,7 +17,25 @@ const UserPanel = (props: any) => {
 
   return (
     <div className={className}>
-      <Button onClick={clickBtnClose}>Закрыть</Button>
+      <div className="user-panel-header">
+        <div className="container">
+          <CloseButton variant="white" onClick={clickBtnClose} />
+        </div>
+      </div>
+      <div className="user-panel-body">
+        <div className="container">
+          <div className="user-icon">
+            <img src="/images/user.png" alt="user"/>
+          </div>
+          <div className="user-title">
+            Иванов Сергей Петрович
+          </div>
+          <ul className="container-menu">
+            <li>Избранные места</li>
+          </ul>
+        </div>
+      </div>
+      {/*  */}
     </div>
   );
 };
