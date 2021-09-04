@@ -7,8 +7,9 @@ const MapTools = (props: any) => {
 
   // const [showUserPanel, setShowUserPanel] = useState(false);
 
-  const clickBtnUser = () => {
+  const clickBtnUser = (e: any) => {
     // setShowUserPanel(!showUserPanel);
+    e.preventDefault();
     props.onCollapseUserPanel(true);
   }
 
@@ -18,6 +19,9 @@ const MapTools = (props: any) => {
         <Button onClick={clickBtnUser}>
           <FontAwesomeIcon icon={["fas", "user"]} />
         </Button>
+        <Button>
+          <FontAwesomeIcon icon={["fas", "plus"]} />
+        </Button> 
         <Button>
           <FontAwesomeIcon icon={["fas", "star"]} />
         </Button> 

@@ -9,8 +9,14 @@ const UserPanel = (props: any) => {
     props.onCloseUserPanel(false);
   }
 
+  let className = 'container-user-panel ';
+  if (props.collapse) {
+    className += 'show';
+  }
+
+
   return (
-    <div className="container-user-panel">
+    <div className={className}>
       <Button onClick={clickBtnClose}>Закрыть</Button>
     </div>
   );

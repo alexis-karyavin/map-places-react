@@ -19,10 +19,13 @@ function App() {
     setShowUserPanel(val);
   }
 
+  // const classUserPanel = showUserPanel ? 'collapse' : null;
+
   return (
     <>
       <MapTools onCollapseUserPanel={collapseUserPanel}/>
-      {showUserPanel && <UserPanel onCloseUserPanel={collapseUserPanel}/>}
+      <UserPanel collapse={showUserPanel} onCloseUserPanel={(val: boolean) => collapseUserPanel(val)}/>
+      {/* {showUserPanel && <UserPanel collapse={showUserPanel} onCloseUserPanel={collapseUserPanel}/>} */}
       <MapContainer />
     </>
   );
