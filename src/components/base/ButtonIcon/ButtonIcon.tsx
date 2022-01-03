@@ -2,9 +2,15 @@ import "./ButtonIcon.scss"
 
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core"
 
-// TODO: Задать тип
-const ButtonIcon = (props: any) => {
+type Icon = [IconPrefix, IconName]
+interface PropsButtonIcon {
+  active?: boolean
+  icon: Icon
+}
+
+const ButtonIcon = (props: PropsButtonIcon) => {
   let classButton = "btn btn-transparent btn-icon"
   if (props.active) {
     classButton = classButton + " active"
