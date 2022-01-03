@@ -1,33 +1,35 @@
-import './MapTools.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Button } from 'react-bootstrap';
+import "./MapTools.scss"
+import React from "react"
+import ButtonIcon from "../base/ButtonIcon/ButtonIcon"
 // import { useState } from 'react';
 
-const MapTools = (props: any) => {
-
+const MapTools: React.FC<{ onCollapseUserPanel: Function }> = ({
+  onCollapseUserPanel,
+}) => {
   // const [showUserPanel, setShowUserPanel] = useState(false);
 
-  const clickBtnUser = (e: any) => {
-    // setShowUserPanel(!showUserPanel);
-    e.preventDefault();
-    props.onCollapseUserPanel(true);
-  }
+  // const clickBtnUser = (e: any) => {
+  //   // setShowUserPanel(!showUserPanel);
+  //   e.preventDefault()
+  //   onCollapseUserPanel(true)
+  // }
 
   return (
     <div className="map-tools-container">
       <div className="map-tools-group user">
-        <Button onClick={clickBtnUser}>
-          <FontAwesomeIcon icon={["fas", "user"]} />
-        </Button>
-        <Button>
-          <FontAwesomeIcon icon={["fas", "plus"]} />
-        </Button> 
-        <Button>
-          <FontAwesomeIcon icon={["fas", "star"]} />
-        </Button> 
+        {/* <button className="btn btn-transparent">
+        <img src="../assets/icons/user.jpg">
+      </button> */}
+      </div>
+      <div className="map-tools-group footer-menu">
+        <div className="footer-menu-container">
+          <ButtonIcon active={true} icon={["fas", "compass"]} />
+          <ButtonIcon icon={["fas", "star"]} />
+          <ButtonIcon icon={["fas", "wrench"]} />
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MapTools;
+export default MapTools
