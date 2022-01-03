@@ -1,19 +1,22 @@
-import './UserPanel.scss';
+import "./UserPanel.scss"
 
-import React from 'react';
-import { CloseButton } from 'react-bootstrap';
+import React from "react"
+import { CloseButton } from "react-bootstrap"
 
-const UserPanel = (props: any) => {
+interface PropsUserPanel {
+  collapse: boolean
+  onCloseUserPanel: Function
+}
 
+const UserPanel: React.FC<PropsUserPanel> = (props: PropsUserPanel) => {
   const clickBtnClose = () => {
-    props.onCloseUserPanel(false);
+    props.onCloseUserPanel(false)
   }
 
-  let className = 'container-user-panel ';
+  let className = "container-user-panel "
   if (props.collapse) {
-    className += 'show';
+    className += "show"
   }
-
 
   return (
     <div className={className}>
@@ -25,19 +28,16 @@ const UserPanel = (props: any) => {
       <div className="user-panel-body">
         <div className="container">
           <div className="user-icon">
-            <img src="/images/user.png" alt="user"/>
+            <img src="/images/user.jpg" alt="user" />
           </div>
-          <div className="user-title">
-            Иванов Сергей Петрович
-          </div>
+          <h3 className="user-title mt-2">Привет, Алексей!</h3>
           <ul className="container-menu">
             <li>Избранные места</li>
           </ul>
         </div>
       </div>
-      {/*  */}
     </div>
-  );
-};
+  )
+}
 
-export default UserPanel;
+export default UserPanel

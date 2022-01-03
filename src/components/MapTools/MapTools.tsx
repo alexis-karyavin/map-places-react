@@ -1,25 +1,27 @@
 import "./MapTools.scss"
 import React from "react"
 import ButtonIcon from "../base/ButtonIcon/ButtonIcon"
-// import { useState } from 'react';
 
-const MapTools: React.FC<{ onCollapseUserPanel: Function }> = ({
-  onCollapseUserPanel,
-}) => {
+interface PropMapTools {
+  onCollapseUserPanel: Function
+}
+
+const MapTools: React.FC<PropMapTools> = ({ onCollapseUserPanel }) => {
   // const [showUserPanel, setShowUserPanel] = useState(false);
 
-  // const clickBtnUser = (e: any) => {
-  //   // setShowUserPanel(!showUserPanel);
-  //   e.preventDefault()
-  //   onCollapseUserPanel(true)
-  // }
+  const clickBtnUser = (): void => {
+    onCollapseUserPanel(true)
+  }
 
   return (
     <div className="map-tools-container">
       <div className="map-tools-group user">
-        {/* <button className="btn btn-transparent">
-          <img src={require("../../assets/icons/user.png")} alt="user" />
-        </button> */}
+        <button
+          className="btn btn-transparent btn-user"
+          onClick={() => clickBtnUser()}
+        >
+          <img src="/images/user.jpg" alt="user" />
+        </button>
       </div>
       <div className="map-tools-group footer-menu">
         <div className="footer-menu-container">
