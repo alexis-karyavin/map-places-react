@@ -2,12 +2,11 @@ import "./ButtonIcon.scss"
 
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
-type Icon = [IconPrefix, IconName]
 interface PropsButtonIcon {
   active?: boolean
-  icon: Icon
+  icon: IconProp
 }
 
 const ButtonIcon = (props: PropsButtonIcon) => {
@@ -19,7 +18,7 @@ const ButtonIcon = (props: PropsButtonIcon) => {
   return (
     <div className="wrapper-button-icon">
       <button className={classButton}>
-        <FontAwesomeIcon icon={props.icon} />
+        <FontAwesomeIcon icon={props.icon} size="2x" />
       </button>
       {props.active && <div className="line-active"></div>}
     </div>

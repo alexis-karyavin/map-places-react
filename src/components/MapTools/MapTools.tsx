@@ -18,8 +18,8 @@ const MapTools: React.FC<{ onCollapseUserPanel: Function }> = ({
     <div className="map-tools-container">
       <div className="map-tools-group user">
         {/* <button className="btn btn-transparent">
-        <img src="../assets/icons/user.jpg">
-      </button> */}
+          <img src={require("../../assets/icons/user.png")} alt="user" />
+        </button> */}
       </div>
       <div className="map-tools-group footer-menu">
         <div className="footer-menu-container">
