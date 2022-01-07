@@ -17,7 +17,7 @@ const UserPanel: React.FC<PropsUserPanel> = (props: PropsUserPanel) => {
     props.onCloseUserPanel(false)
   }
 
-  let className = "container-user-panel "
+  let className = "wrapper-user-panel "
   if (props.collapse) {
     className += "show"
   }
@@ -45,19 +45,21 @@ const UserPanel: React.FC<PropsUserPanel> = (props: PropsUserPanel) => {
 
   return (
     <div className={className}>
-      <div className="user-panel-header">
-        <div className="container">
-          <CloseButton variant="white" onClick={clickBtnClose} />
-        </div>
-      </div>
-      <div className="user-panel-body">
-        <div className="container">
-          <div className="user-icon">
-            <img src="/images/user.jpg" alt="user" />
+      <div className="container-user-panel">
+        <div className="user-panel-header">
+          <div className="container">
+            <CloseButton variant="white" onClick={clickBtnClose} />
           </div>
-          <h3 className="user-title mt-2">Привет, Алексей!</h3>
         </div>
-        <ul className="container-menu">{itemMenu}</ul>
+        <div className="user-panel-body">
+          <div className="container">
+            <div className="user-icon">
+              <img src="/images/user.jpg" alt="user" />
+            </div>
+            <h3 className="user-title mt-2">Привет, Алексей!</h3>
+          </div>
+          <ul className="container-menu">{itemMenu}</ul>
+        </div>
       </div>
     </div>
   )
